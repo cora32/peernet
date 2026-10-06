@@ -3,7 +3,7 @@
 // ignore_for_file: public_member_api_docs, constant_identifier_names, avoid_classes_with_only_static_members
 
 mixin Pubspec {
-  static final buildDate = DateTime.utc(2026, 10, 3, 19, 4, 18);
+  static final buildDate = DateTime.utc(2026, 10, 6, 13, 8, 15);
 
   static const name = 'peernet';
 
@@ -33,15 +33,20 @@ mixin Pubspec {
   };
 
   static const dependencies = <dynamic, dynamic>{
-    'flutter': <dynamic, dynamic>{'sdk': 'flutter'},
+    'flutter': <dynamic, dynamic>{
+      'sdk': 'flutter',
+    },
     'logger': '^2.8.0',
     'shelf': '^1.4.1',
     'shelf_web_socket': '^3.0.0',
-    'json_annotation': '^4.9.0',
+    'json_annotation': '^4.12.0',
+    'shared_preferences': '^2.5.1',
   };
 
   static const dev_dependencies = <dynamic, dynamic>{
-    'flutter_test': <dynamic, dynamic>{'sdk': 'flutter'},
+    'flutter_test': <dynamic, dynamic>{
+      'sdk': 'flutter',
+    },
     'flutter_lints': '^6.0.0',
     'build_runner': '^2.4.9',
     'json_serializable': '^6.8.0',

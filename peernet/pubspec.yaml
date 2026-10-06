@@ -13,7 +13,8 @@ dependencies:
   logger: ^2.8.0
   shelf: ^1.4.1
   shelf_web_socket: ^3.0.0
-  json_annotation: ^4.9.0 # Contains the annotations
+  json_annotation: ^4.12.0 # Contains the annotations
+  shared_preferences: ^2.5.1
 
 dev_dependencies:
   flutter_test:

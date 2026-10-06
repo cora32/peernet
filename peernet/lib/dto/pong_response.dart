@@ -1,9 +1,11 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:peernet/services/peernet.dart';
 
-part 'peer_data.g.dart';
+part 'pong_response.g.dart';
 
 @JsonSerializable()
-class PeerData {
+class PeernetMsg {
+  final Messages type;
   final String ip;
   @JsonKey(name: "discovery_port")
   final int discoveryPort;
@@ -12,7 +14,8 @@ class PeerData {
   final String version;
   final String name;
 
-  PeerData({
+  PeernetMsg({
+    required this.type,
     required this.ip,
     required this.discoveryPort,
     required this.websocketPort,
@@ -20,13 +23,8 @@ class PeerData {
     required this.name,
   });
 
-  factory PeerData.fromJson(Map<String, dynamic> json) =>
-      _$PeerDataFromJson(json);
+  factory PeernetMsg.fromJson(Map<String, dynamic> json) =>
+      _$PeernetMsgFromJson(json);
 
-  Map<String, dynamic> toJson() => _$PeerDataToJson(this);
-
-  @override
-  String toString() {
-    return 'PeerData(ip: $ip, discoveryPort: $discoveryPort, websocketPort: $websocketPort, version: $version, name: $name)';
-  }
+  Map<String, dynamic> toJson() => _$PeernetMsgToJson(this);
 }

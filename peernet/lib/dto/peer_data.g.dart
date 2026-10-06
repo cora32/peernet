@@ -7,13 +7,17 @@ part of 'peer_data.dart';
 // **************************************************************************
 
 PeerData _$PeerDataFromJson(Map<String, dynamic> json) => PeerData(
-  version: json['version'] as String,
   ip: json['ip'] as String,
-  port: (json['port'] as num).toInt(),
+  discoveryPort: (json['discovery_port'] as num).toInt(),
+  websocketPort: (json['websocket_port'] as num).toInt(),
+  version: json['version'] as String,
+  name: json['name'] as String,
 );
 
 Map<String, dynamic> _$PeerDataToJson(PeerData instance) => <String, dynamic>{
-  'version': instance.version,
   'ip': instance.ip,
-  'port': instance.port,
+  'discovery_port': instance.discoveryPort,
+  'websocket_port': instance.websocketPort,
+  'version': instance.version,
+  'name': instance.name,
 };

@@ -1,6 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:peernet/peernet.dart';
+import 'package:peernet/services/peernet.dart';
 
 void main() {
   test('adds one to input values', () {
