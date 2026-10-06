@@ -8,12 +8,19 @@
 #include <iostream>
 
 void CreateAndAttachConsole() {
-    if (::AllocConsole()) {
+    // If stdout is already connected to a pipe (e.g. Flutter IDE / flutter run --machine),
+    // do NOT hijack standard output handles!
+    DWORD outType = ::GetFileType(::GetStdHandle(STD_OUTPUT_HANDLE));
+    if (outType == FILE_TYPE_PIPE) {
+        return;
+    }
+
+    if (::AttachConsole(ATTACH_PARENT_PROCESS) || ::AllocConsole()) {
         FILE *unused;
-        if (freopen_s(&unused, "CONOUT$", "w", stdout)) {
+        if (freopen_s(&unused, "CONOUT$", "w", stdout) == 0) {
             _dup2(_fileno(stdout), 1);
         }
-        if (freopen_s(&unused, "CONOUT$", "w", stderr)) {
+        if (freopen_s(&unused, "CONOUT$", "w", stderr) == 0) {
             _dup2(_fileno(stdout), 2);
         }
         std::ios::sync_with_stdio();

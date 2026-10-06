@@ -128,7 +128,7 @@ class PeerEngine {
 
             // Filter out messages from this device
             if (localIps.contains(dg.address.address)) {
-              _logger.i("[PeerNet]: Filtering out self: ${dg.address.address}");
+              _logger.i("[PeerNet]: Ignoring self: ${dg.address.address}");
               return;
             }
 
